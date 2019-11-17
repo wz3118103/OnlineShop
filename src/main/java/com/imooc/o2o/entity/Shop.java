@@ -10,9 +10,13 @@ public class Shop {
     private String phone;
     private String shopImg;
     private Integer priority;
-    // -1表示不可用 0-审核中 1-可用
+    /**
+     *  -1表示不可用 0-审核中 1-可用
+      */
     private Integer enableStatus;
-    // 超级管理员给店家的提醒
+    /**
+     * 超级管理员给店家的提醒
+      */
     private String advice;
     private Date createTime;
     private Date lastEditTime;

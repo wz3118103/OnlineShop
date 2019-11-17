@@ -3,7 +3,9 @@ package com.imooc.o2o.entity;
 import java.util.Date;
 
 public class Area {
-    // 这里使用Integer的原因是，基本类型默认赋值为0，而引用类型默认为null
+    /**
+     * 这里使用Integer的原因是，基本类型默认赋值为0，而引用类型默认为null
+      */
     private Integer areaId;
     private String areaName;
     private Integer priority;
