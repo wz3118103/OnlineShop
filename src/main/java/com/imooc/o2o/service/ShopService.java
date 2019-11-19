@@ -15,4 +15,8 @@ import java.io.InputStream;
  */
 public interface ShopService {
     ShopExecuction addShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
+
+    Shop getByShopId(long shopId);
+
+    ShopExecuction modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
 }

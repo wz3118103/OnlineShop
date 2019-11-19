@@ -76,6 +76,23 @@ public class ImageUtil {
         return timeStr + random;
     }
 
+    /**
+     *
+     * @param path 如果是文件路径则删除文件，若是目录，则删除目录下的所有文件
+     */
+    public static void deleteFileOrDir(String path) {
+        File fileOrDir = new File(PathUtil.getImgBasePath() + path);
+        if (fileOrDir.exists()) {
+            if (fileOrDir.isDirectory()) {
+                File[] files = fileOrDir.listFiles();
+                for (File file : files) {
+                    file.delete();
+                }
+            }
+            fileOrDir.delete();
+        }
+    }
+
     private static String getFileExtension(String fileName) {
         return fileName.substring(fileName.lastIndexOf("."));
     }

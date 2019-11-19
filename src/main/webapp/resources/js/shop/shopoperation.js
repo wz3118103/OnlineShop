@@ -4,10 +4,19 @@
  * 3.还有一项待做的功能：必须要验证表单输入
  */
 $(function () {
+    var shopId = getQueryString('shopId');
+    var isModify = shopId ? true : false;
     var initUrl = '/o2o/shopadmin/getshopinitinfo';
     var registerShopUrl = '/o2o/shopadmin/registershop';
+    var shopInfoUrl = '/o2o/shopadmin/getshopbyid?shopId=' + shopId;
+    var modifyShopUrl = '/o2o/shopadmin/modifyshop';
 
-    getShopInitInfo();
+    if (!isModify) {
+        getShopInitInfo();
+    } else {
+        getShopInfo(shopId);
+    }
+
 
     function getShopInitInfo() {
         $.getJSON(initUrl, function (data) {
@@ -28,8 +37,36 @@ $(function () {
         });
     }
 
+    function getShopInfo(shopId) {
+        $.getJSON(shopInfoUrl, function (data) {
+            if (data.success) {
+                var shop = data.shop;
+                $('#shop-name').val(shop.shopName);
+                $('#shop-addr').val(shop.shopAddr);
+                $('#shop-phone').val(shop.phone);
+                $('#shop-desc').val(shop.shopDesc);
+                var shopCategory = '<option data-id="'
+                    + shop.shopCategory.shopCategoryId + '" selected>'
+                    + shop.shopCategory.shopCategoryName + '</option>';
+                var tmpAreaHtml = '';
+                data.areaList.map(function (value, index) {
+                    tmpAreaHtml += '<option data-id="' + value.areaId + '">'
+                        + value.areaName + '</option>';
+                });
+                $('#shop-category').html(shopCategory);
+                // 不允许对店铺列表进行修改
+                $('#shop-category').attr('disabled', 'disabled');
+                $('#area').html(tmpAreaHtml);
+                $("#area option[data-id='" + shop.area.areaId + "]").attr("selected", "selected");
+            }
+        })
+    }
+
     $('#submit').click(function () {
         var shop = {};
+        if (isModify) {
+            shop.shopId = shopId;
+        }
         shop.shopName = $('#shop-name').val();
         shop.shopAddr = $('#shop-addr').val();
         shop.phone = $('#shop-phone').val();
@@ -55,7 +92,7 @@ $(function () {
         }
         formData.append('verifyCodeActual', verifyCodeActual);
         $.ajax({
-            url : registerShopUrl,
+            url : (isModify ? modifyShopUrl : registerShopUrl),
             type : 'POST',
             data : formData,
             contentType : false,
