@@ -7,6 +7,7 @@ import com.imooc.o2o.enums.ShopStateEnum;
 import com.imooc.o2o.exceptions.ShopOperationException;
 import com.imooc.o2o.service.ShopService;
 import com.imooc.o2o.util.ImageUtil;
+import com.imooc.o2o.util.PageCalculator;
 import com.imooc.o2o.util.PathUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.File;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author : Wang Zhen.
@@ -104,6 +106,22 @@ public class ShopServiceImpl implements ShopService {
         } catch (Exception e) {
             throw new ShopOperationException("modify error: " + e.getMessage());
         }
+    }
+
+    @Override
+    public ShopExecuction getShopList(Shop shopCondition, int pageIndex, int pageSize) {
+        // 前端只认页数，后端只认行数，所以要进行转换
+        int rowIndex = PageCalculator.calculateRowIndex(pageIndex, pageSize);
+        List<Shop> shopList = shopDao.queryShopList(shopCondition, rowIndex, pageSize);
+        int count = shopDao.queryShopCount(shopCondition);
+        ShopExecuction se = new ShopExecuction();
+        if (shopList != null) {
+            se.setShopList(shopList);
+            se.setCount(count);
+        } else {
+            se.setState(ShopStateEnum.INNER_ERROR.getState());
+        }
+        return se;
     }
 
     private void addShopImg(Shop shop, InputStream shopImgInpuStream, String fileName) {

@@ -19,4 +19,13 @@ public interface ShopService {
     Shop getByShopId(long shopId);
 
     ShopExecuction modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
+
+    /**
+     *
+     * @param shopCondition
+     * @param pageIndex 前端只认页数，后端只认行数，所以要进行转换
+     * @param pageSize
+     * @return
+     */
+    ShopExecuction getShopList(Shop shopCondition, int pageIndex, int pageSize);
 }

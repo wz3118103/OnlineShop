@@ -20,4 +20,16 @@ public class ShopAdminController {
         // 为什么只设置了中间路径，因为前缀和后缀在spring-web.xml中有设置
         return "shop/shopoperation";
     }
+
+    @RequestMapping(value = "/shoplist")
+    public String shopList(){
+        // 为什么只设置了中间路径，因为前缀和后缀在spring-web.xml中有设置
+        return "shop/shoplist";
+    }
+
+    @RequestMapping(value = "/shopmanagement")
+    public String shopManagement(){
+        // 为什么只设置了中间路径，因为前缀和后缀在spring-web.xml中有设置
+        return "shop/shopmanagement";
+    }
 }

@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -66,5 +67,16 @@ public class ShopServiceTest extends BaseTest {
         InputStream is = new FileInputStream(shopImg);
         ShopExecuction se = shopService.modifyShop(shop, is, "dabai.jpg");
         System.out.println("更新图片地址： " + se.getShop().getShopImg());
+    }
+
+    @Test
+    public void testGetShopList() {
+        Shop shopCondition = new Shop();
+        ShopCategory sc = new ShopCategory();
+        sc.setShopCategoryId(10L);
+        shopCondition.setShopCategory(sc);
+        ShopExecuction se = shopService.getShopList(shopCondition, 3, 2);
+        System.out.println("分页大小：" +se.getShopList().size());
+        System.out.println("商店总数：" +se.getCount());
     }
 }
