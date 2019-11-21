@@ -1,5 +1,6 @@
 package com.imooc.o2o.service;
 
+import com.imooc.o2o.dto.ImageHolder;
 import com.imooc.o2o.dto.ShopExecuction;
 import com.imooc.o2o.entity.Shop;
 import com.imooc.o2o.exceptions.ShopOperationException;
@@ -14,11 +15,11 @@ import java.io.InputStream;
  * @Version :
  */
 public interface ShopService {
-    ShopExecuction addShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
+    ShopExecuction addShop(Shop shop,ImageHolder image) throws ShopOperationException;
 
     Shop getByShopId(long shopId);
 
-    ShopExecuction modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
+    ShopExecuction modifyShop(Shop shop, ImageHolder image) throws ShopOperationException;
 
     /**
      *

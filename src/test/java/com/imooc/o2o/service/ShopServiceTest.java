@@ -1,6 +1,7 @@
 package com.imooc.o2o.service;
 
 import com.imooc.o2o.BaseTest;
+import com.imooc.o2o.dto.ImageHolder;
 import com.imooc.o2o.dto.ShopExecuction;
 import com.imooc.o2o.entity.Area;
 import com.imooc.o2o.entity.PersonInfo;
@@ -15,7 +16,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -54,7 +54,8 @@ public class ShopServiceTest extends BaseTest {
 
         File shopImg = new File("E:/wz/image/xiaohuangren.jpg");
         InputStream is = new FileInputStream(shopImg);
-        ShopExecuction se = shopService.addShop(shop, is, shopImg.getName());
+        ImageHolder image = new ImageHolder(shopImg.getName(), is);
+        ShopExecuction se = shopService.addShop(shop, image);
         assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
     }
 
@@ -65,7 +66,8 @@ public class ShopServiceTest extends BaseTest {
         shop.setShopName("修改后的店铺名称");
         File shopImg = new File("E:/wz/image/dabai.jpg");
         InputStream is = new FileInputStream(shopImg);
-        ShopExecuction se = shopService.modifyShop(shop, is, "dabai.jpg");
+        ImageHolder image = new ImageHolder("dabai.jpg", is);
+        ShopExecuction se = shopService.modifyShop(shop, image);
         System.out.println("更新图片地址： " + se.getShop().getShopImg());
     }
 

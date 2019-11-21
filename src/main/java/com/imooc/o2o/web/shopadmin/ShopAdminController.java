@@ -38,4 +38,14 @@ public class ShopAdminController {
         // 为什么只设置了中间路径，因为前缀和后缀在spring-web.xml中有设置
         return "shop/productcategorymanagement";
     }
+
+    @RequestMapping(value = "/productoperation")
+    public String productOperation(){
+        return "shop/productoperation";
+    }
+
+    @RequestMapping(value = "/productmanagement")
+    public String productManagement(){
+        return "shop/productmanagement";
+    }
 }

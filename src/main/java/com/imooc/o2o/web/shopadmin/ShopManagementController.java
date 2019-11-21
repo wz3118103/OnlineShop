@@ -1,6 +1,7 @@
 package com.imooc.o2o.web.shopadmin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.imooc.o2o.dto.ImageHolder;
 import com.imooc.o2o.dto.ShopExecuction;
 import com.imooc.o2o.entity.Area;
 import com.imooc.o2o.entity.PersonInfo;
@@ -101,10 +102,12 @@ public class ShopManagementController {
 
             ShopExecuction se = null;
             try {
+
                 if (shopImg != null) {
-                    se = shopService.modifyShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+                    ImageHolder image = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
+                    se = shopService.modifyShop(shop, image);
                 } else {
-                    se = shopService.modifyShop(shop, null, shopImg.getOriginalFilename());
+                    se = shopService.modifyShop(shop, new ImageHolder(null, null));
                 }
             } catch (IOException e) {
                 modelMap.put("success", false);
@@ -205,7 +208,8 @@ public class ShopManagementController {
 //            }
             ShopExecuction se = null;
             try {
-                se = shopService.addShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+                ImageHolder image = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
+                se = shopService.addShop(shop, image);
             } catch (IOException e) {
                 modelMap.put("success", false);
                 modelMap.put("errMsg", e.getMessage());

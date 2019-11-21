@@ -1,6 +1,7 @@
 package com.imooc.o2o.service.impl;
 
 import com.imooc.o2o.dao.ShopDao;
+import com.imooc.o2o.dto.ImageHolder;
 import com.imooc.o2o.dto.ShopExecuction;
 import com.imooc.o2o.entity.Shop;
 import com.imooc.o2o.enums.ShopStateEnum;
@@ -33,12 +34,12 @@ public class ShopServiceImpl implements ShopService {
     /**
      * 需要事务支持
      * @param shop
-     * @param shopImgInpuStream
+     * @param image
      * @return
      */
     @Override
     @Transactional
-    public ShopExecuction addShop(Shop shop, InputStream shopImgInpuStream, String fileName) throws ShopOperationException {
+    public ShopExecuction addShop(Shop shop, ImageHolder image) throws ShopOperationException {
         // 包括对shop以及shop中area shopCategory是否为空的判断
         if (shop == null) {
             return new ShopExecuction(ShopStateEnum.NULL_SHOP);
@@ -54,11 +55,11 @@ public class ShopServiceImpl implements ShopService {
             if (effectedNum <= 0) {
                 throw new ShopOperationException("店铺创建失败");
             } else {
-                if (shopImgInpuStream != null) {
+                if (image.getImage() != null) {
                     try {
                         // step2.获取店铺id，通过id创建图片存储的文件夹
                         // step3.在文件夹下面去处理图片
-                        addShopImg(shop, shopImgInpuStream, fileName);
+                        addShopImg(shop, image);
                     } catch (Exception e) {
                         throw new ShopOperationException("addShopImg error: " + e.getMessage());
                     }
@@ -82,18 +83,18 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public ShopExecuction modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException {
+    public ShopExecuction modifyShop(Shop shop, ImageHolder image) throws ShopOperationException {
         if (shop == null || shop.getShopId() == null) {
             return new ShopExecuction(ShopStateEnum.NULL_SHOP);
         }
         // step1.判断是否需要处理图片（需要删除旧图片）
         try {
-            if (shopImgInputStream != null && fileName != null && !"".equals(fileName)) {
+            if (image.getImage() != null && image.getImageName() != null && !"".equals(image.getImageName())) {
                 Shop tmpShop = shopDao.queryByShopId(shop.getShopId());
                 if (tmpShop.getShopImg() != null) {
                     ImageUtil.deleteFileOrDir(tmpShop.getShopImg());
                 }
-                addShopImg(shop, shopImgInputStream, fileName);
+                addShopImg(shop, image);
             }
             // step2.更新店铺信息
             shop.setLastEditTime(new Date());
@@ -124,10 +125,10 @@ public class ShopServiceImpl implements ShopService {
         return se;
     }
 
-    private void addShopImg(Shop shop, InputStream shopImgInpuStream, String fileName) {
+    private void addShopImg(Shop shop, ImageHolder image) {
         // 获取相对值路径
         String dest = PathUtil.getShopImagePath(shop.getShopId());
-        String shopImgAddr = ImageUtil.generateThumbnail(shopImgInpuStream, fileName, dest);
+        String shopImgAddr = ImageUtil.generateThumbnail(image, dest);
         shop.setShopImg(shopImgAddr);
     }
 

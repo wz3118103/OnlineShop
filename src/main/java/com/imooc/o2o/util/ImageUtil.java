@@ -1,5 +1,6 @@
 package com.imooc.o2o.util;
 
+import com.imooc.o2o.dto.ImageHolder;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 import org.slf4j.Logger;
@@ -26,22 +27,21 @@ public class ImageUtil {
 
     /**
      * 加水印生成缩略图，并返回新生成图片的相对路径
-     * @param thumbnailInputStream
-     * @param fileName
+     * @param image
      * @param targetAddr
      * @return
      */
-    public static String generateThumbnail(InputStream thumbnailInputStream, String fileName, String targetAddr) {
+    public static String generateThumbnail(ImageHolder image, String targetAddr) {
         // 为防止文件重名，随机生成新的名字
         String realFileName = getRandomFileName();
-        String extension = getFileExtension(fileName);
+        String extension = getFileExtension(image.getImageName());
         makeDirPath(targetAddr);
         String relativeAddr = targetAddr + realFileName + extension;
         logger.debug("current relativeAddr is: " + relativeAddr);
         File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
         logger.debug("complete addr is: " + PathUtil.getImgBasePath() + relativeAddr);
         try {
-            Thumbnails.of(thumbnailInputStream)
+            Thumbnails.of(image.getImage())
                     .size(200, 200)
                     .watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
                     .outputQuality(0.8f)
@@ -91,6 +91,30 @@ public class ImageUtil {
             }
             fileOrDir.delete();
         }
+    }
+
+    public static String generateNormalImg(ImageHolder image, String targetAddr) {
+        // 为防止文件重名，随机生成新的名字
+        String realFileName = getRandomFileName();
+        String extension = getFileExtension(image.getImageName());
+        makeDirPath(targetAddr);
+        String relativeAddr = targetAddr + realFileName + extension;
+        logger.debug("current relativeAddr is: " + relativeAddr);
+        File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
+        logger.debug("complete addr is: " + PathUtil.getImgBasePath() + relativeAddr);
+        try {
+            Thumbnails.of(image.getImage())
+                    .size(337, 640)
+                    .watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
+                    .outputQuality(0.9f)
+                    .toFile(dest);
+        } catch (IOException e) {
+            logger.error(e.toString());
+            e.printStackTrace();
+        }
+
+        // 需要返回并更新数据库中的shop_img，返回相对路径利于不同操作系统之间的迁移
+        return relativeAddr;
     }
 
     private static String getFileExtension(String fileName) {
