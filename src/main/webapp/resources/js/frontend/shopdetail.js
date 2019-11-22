@@ -150,7 +150,8 @@ $(function () {
 
 
     // 需要查询的商品名字发生变化后，重置页码，清空原先的商品列表，按照新的名字去查询
-    $('#search').on('input', function(e) {
+    // input改变太快了，会很快触发，所以这里要改成change
+    $('#search').on('change', function(e) {
         productName = e.target.value;
         $('.list-div').empty();
         pageNum = 1;

@@ -150,7 +150,8 @@ $(function () {
     });
 
     // 需要查询的商店名字发生变化后，重置页码，清空原先的店铺列表，按照新的名字去查询
-    $('#search').on('input', function(e) {
+    // input太快了，改成change
+    $('#search').on('change', function(e) {
         shopName = e.target.value;
         $('.list-div').empty();
         pageNum = 1;
