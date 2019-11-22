@@ -89,5 +89,24 @@ public class ShopDaoTest extends BaseTest {
         System.out.println("分页大小：" + shopList.size());
     }
 
+    /**
+     * 查询一级类别下的所有商店列表
+     */
+    @Test
+    public void testQueryShopListUnderOneLevel() {
+        ShopCategory child = new ShopCategory();
+        ShopCategory parent = new ShopCategory();
+        parent.setShopCategoryId(12L);
+        child.setParent(parent);
+        Shop shopCondition = new Shop();
+        shopCondition.setShopCategory(child);
+
+        List<Shop> shopList = shopDao.queryShopList(shopCondition, 0, 10);
+        System.out.println("分页大小：" + shopList.size());
+
+        int count = shopDao.queryShopCount(shopCondition);
+        System.out.println("商店总数：" + count);
+    }
+
 
 }
