@@ -94,7 +94,7 @@
                 and product_name like '%${productCondition.productName}%'
             </if>
             <if test="productCondition.enableStatus != null">
-                and enable_status = #{productCondtion.enableStatus}
+                and enable_status = #{productCondition.enableStatus}
             </if>
         </where>
         ORDER BY priority DESC
@@ -120,7 +120,7 @@
                 and product_name like '%${productCondition.productName}%'
             </if>
             <if test="productCondition.enableStatus != null">
-                and enable_status = #{productCondtion.enableStatus}
+                and enable_status = #{productCondition.enableStatus}
             </if>
         </where>
     </select>
