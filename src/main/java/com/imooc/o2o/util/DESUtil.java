@@ -78,7 +78,7 @@ public class DESUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(getEncryptString("root"));
-        System.out.println(getEncryptString("wz19910127"));
+        System.out.println(getEncryptString("work"));
+        System.out.println(getEncryptString("Wz3118103y!"));
     }
 }
