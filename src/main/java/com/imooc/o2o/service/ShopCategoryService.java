@@ -12,6 +12,7 @@ import java.util.List;
  * @Version :
  */
 public interface ShopCategoryService {
+    public static final String SHOPCATEGORYLISTKEY = "shopcategorylist";
     /**
      *
      * @param shopCategoryCondition 查询某个店铺类别下的所有子类别

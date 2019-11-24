@@ -31,10 +31,10 @@ public class ShopDaoTest extends BaseTest {
         shop.setShopCategory(shopCategory);
         shop.setArea(area);
 
-        shop.setShopName("测试店铺2");
-        shop.setShopDesc("test2");
-        shop.setShopAddr("test2");
-        shop.setPhone("test");
+        shop.setShopName("测试店铺-主从测试");
+        shop.setShopDesc("test2主从测试");
+        shop.setShopAddr("test2主从测试");
+        shop.setPhone("test主从测试");
         shop.setCreateTime(new Date());
         shop.setEnableStatus(0);
         shop.setAdvice("审核中");
