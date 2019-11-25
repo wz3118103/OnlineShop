@@ -269,15 +269,12 @@ public class ShopManagementController {
     private Map<String, Object> getShopList(HttpServletRequest request) {
         Map<String, Object> modeMap = new HashMap<>();
         // 从session中获取用户信息
-        PersonInfo user = null;
-//        user.setUserId(1L);
-//        user.setName("测试");
-//        request.getSession().setAttribute("user", user);
-        user = (PersonInfo) request.getSession().getAttribute("user");
+        PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
         try {
             Shop shopCondition = new Shop();
             shopCondition.setOwner(user);
             ShopExecuction se = shopService.getShopList(shopCondition,0, 100);
+            request.getSession().setAttribute("shopList", se.getShopList());
             modeMap.put("shopList", se.getShopList());
             modeMap.put("user", user);
             modeMap.put("success", true);
