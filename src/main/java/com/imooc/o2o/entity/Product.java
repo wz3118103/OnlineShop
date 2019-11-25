@@ -12,6 +12,10 @@ public class Product {
     private String normalPrice;
     private String promotionPrice;
     private Integer priority;
+    /**
+     * 商品积分
+     */
+    private Integer point;
     private Date createTime;
     private Date lastEditTime;
     // 0-下架 1-展示
@@ -75,6 +79,14 @@ public class Product {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
+    }
+
+    public Integer getPoint() {
+        return point;
+    }
+
+    public void setPoint(Integer point) {
+        this.point = point;
     }
 
     public Date getCreateTime() {
