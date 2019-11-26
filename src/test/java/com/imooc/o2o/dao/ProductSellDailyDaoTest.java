@@ -34,12 +34,12 @@ public class ProductSellDailyDaoTest extends BaseTest {
      *
      * @throws Exception
      */
-/*    @Test
+    @Test
     public void testBInsertDefaultProductSellDaily() throws Exception {
         // 创建商品日销量统计
         int effectedNum = productSellDailyDao.insertDefaultProductSellDaily();
         assertEquals(10, effectedNum);
-    }*/
+    }
 
     /**
      * 测试查询功能

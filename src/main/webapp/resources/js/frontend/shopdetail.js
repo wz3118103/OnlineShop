@@ -19,6 +19,8 @@ $(function () {
     // 预先加载10条商品信息
     addItems(pageSize, pageNum);
 
+    $('#exchangelist').attr('href', '/o2o/frontend/awardlist?shopId=' + shopId);
+
     /**
      * 渲染出商店基本信息以及商品类别列表
      */

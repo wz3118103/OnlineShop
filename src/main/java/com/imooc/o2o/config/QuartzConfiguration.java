@@ -65,8 +65,8 @@ public class QuartzConfiguration {
         // 绑定jobDetail
         triggerFactory.setJobDetail(jobDetailFactory.getObject());
         // 设定cron表达式
-//        triggerFactory.setCronExpression("0 0 0 * * ? *");
-        triggerFactory.setCronExpression("0/3 * * * * ? *");
+        triggerFactory.setCronExpression("0 0 0 * * ? *");
+//        triggerFactory.setCronExpression("0/3 * * * * ? *");
         return triggerFactory;
     }
 
