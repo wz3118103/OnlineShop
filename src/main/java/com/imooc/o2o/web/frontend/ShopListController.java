@@ -1,6 +1,6 @@
 package com.imooc.o2o.web.frontend;
 
-import com.imooc.o2o.dto.ShopExecuction;
+import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.entity.Area;
 import com.imooc.o2o.entity.Shop;
 import com.imooc.o2o.entity.ShopCategory;
@@ -95,7 +95,7 @@ public class ShopListController {
             String shopName = HttpServletRequestUtil.getString(request, "shopName");
             Shop shopCondition = compactShopCondition(parentId, shopCategoryId, areaId, shopName);
             try {
-                ShopExecuction se = shopService.getShopList(shopCondition, pageIndex, pageSize);
+                ShopExecution se = shopService.getShopList(shopCondition, pageIndex, pageSize);
                 modelMap.put("shopList", se.getShopList());
                 modelMap.put("count", se.getCount());
                 modelMap.put("success", true);

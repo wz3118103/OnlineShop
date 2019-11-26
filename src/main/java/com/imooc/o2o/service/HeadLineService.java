@@ -1,5 +1,7 @@
 package com.imooc.o2o.service;
 
+import com.imooc.o2o.dto.HeadLineExecution;
+import com.imooc.o2o.dto.ImageHolder;
 import com.imooc.o2o.entity.HeadLine;
 
 import java.util.List;
@@ -8,4 +10,38 @@ public interface HeadLineService {
     public static final String HEADLINELISTKEY = "headlinelist";
 
     List<HeadLine> getHeadLineList(HeadLine headLineCondition);
+
+    /**
+     * 添加头条信息，并存储头条图片
+     *
+     * @param headLine
+     * @param thumbnail
+     * @return
+     */
+    HeadLineExecution addHeadLine(HeadLine headLine, ImageHolder thumbnail);
+
+    /**
+     * 修改头条信息
+     *
+     * @param headLine
+     * @param thumbnail
+     * @return
+     */
+    HeadLineExecution modifyHeadLine(HeadLine headLine, ImageHolder thumbnail);
+
+    /**
+     * 删除单条头条
+     *
+     * @param headLineId
+     * @return
+     */
+    HeadLineExecution removeHeadLine(long headLineId);
+
+    /**
+     * 批量删除头条
+     *
+     * @param headLineIdList
+     * @return
+     */
+    HeadLineExecution removeHeadLineList(List<Long> headLineIdList);
 }

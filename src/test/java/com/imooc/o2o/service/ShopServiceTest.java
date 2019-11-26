@@ -2,7 +2,7 @@ package com.imooc.o2o.service;
 
 import com.imooc.o2o.BaseTest;
 import com.imooc.o2o.dto.ImageHolder;
-import com.imooc.o2o.dto.ShopExecuction;
+import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.entity.Area;
 import com.imooc.o2o.entity.PersonInfo;
 import com.imooc.o2o.entity.Shop;
@@ -55,7 +55,7 @@ public class ShopServiceTest extends BaseTest {
         File shopImg = new File("E:/wz/image/xiaohuangren.jpg");
         InputStream is = new FileInputStream(shopImg);
         ImageHolder image = new ImageHolder(shopImg.getName(), is);
-        ShopExecuction se = shopService.addShop(shop, image);
+        ShopExecution se = shopService.addShop(shop, image);
         assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
     }
 
@@ -67,7 +67,7 @@ public class ShopServiceTest extends BaseTest {
         File shopImg = new File("E:/wz/image/dabai.jpg");
         InputStream is = new FileInputStream(shopImg);
         ImageHolder image = new ImageHolder("dabai.jpg", is);
-        ShopExecuction se = shopService.modifyShop(shop, image);
+        ShopExecution se = shopService.modifyShop(shop, image);
         System.out.println("更新图片地址： " + se.getShop().getShopImg());
     }
 
@@ -77,7 +77,7 @@ public class ShopServiceTest extends BaseTest {
         ShopCategory sc = new ShopCategory();
         sc.setShopCategoryId(10L);
         shopCondition.setShopCategory(sc);
-        ShopExecuction se = shopService.getShopList(shopCondition, 3, 2);
+        ShopExecution se = shopService.getShopList(shopCondition, 3, 2);
         System.out.println("分页大小：" +se.getShopList().size());
         System.out.println("商店总数：" +se.getCount());
     }

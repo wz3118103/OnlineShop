@@ -19,8 +19,7 @@ public interface UserProductMapService {
      * @param pageIndex
      * @param pageSize
      * @return
-     */
-    UserProductMapExecution listUserProductMap(UserProductMap userProductCondition, Integer pageIndex,
+     */    UserProductMapExecution listUserProductMap(UserProductMap userProductCondition, Integer pageIndex,
                                                Integer pageSize);
 
     /**
