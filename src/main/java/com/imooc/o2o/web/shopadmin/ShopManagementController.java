@@ -2,7 +2,7 @@ package com.imooc.o2o.web.shopadmin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.imooc.o2o.dto.ImageHolder;
-import com.imooc.o2o.dto.ShopExecuction;
+import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.entity.Area;
 import com.imooc.o2o.entity.PersonInfo;
 import com.imooc.o2o.entity.Shop;
@@ -100,7 +100,7 @@ public class ShopManagementController {
         if (shop != null && shop.getShopId() != null) {
             // 假设前端传过来的信息是不可靠的，越少依赖越好，所以owner一般从会话中获取
 
-            ShopExecuction se = null;
+            ShopExecution se = null;
             try {
 
                 if (shopImg != null) {
@@ -206,7 +206,7 @@ public class ShopManagementController {
 //                modelMap.put("errMsg", e.getMessage());
 //                return modelMap;
 //            }
-            ShopExecuction se = null;
+            ShopExecution se = null;
             try {
                 ImageHolder image = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
                 se = shopService.addShop(shop, image);
@@ -273,7 +273,7 @@ public class ShopManagementController {
         try {
             Shop shopCondition = new Shop();
             shopCondition.setOwner(user);
-            ShopExecuction se = shopService.getShopList(shopCondition,0, 100);
+            ShopExecution se = shopService.getShopList(shopCondition,0, 100);
             request.getSession().setAttribute("shopList", se.getShopList());
             modeMap.put("shopList", se.getShopList());
             modeMap.put("user", user);

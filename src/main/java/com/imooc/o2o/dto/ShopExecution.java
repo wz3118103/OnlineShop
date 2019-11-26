@@ -12,7 +12,7 @@ import java.util.List;
  * @Modified By   :
  * @Version :
  */
-public class ShopExecuction {
+public class ShopExecution {
     private int state;
     private String stateInfo;
     private int count;
@@ -22,14 +22,14 @@ public class ShopExecuction {
     private Shop shop;
     private List<Shop> shopList;
 
-    public ShopExecuction() {
+    public ShopExecution() {
     }
 
     /**
      * 店铺操作失败时的使用的构造器
      * @param stateEnum
      */
-    public ShopExecuction(ShopStateEnum stateEnum) {
+    public ShopExecution(ShopStateEnum stateEnum) {
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
     }
@@ -38,7 +38,7 @@ public class ShopExecuction {
      * 店铺操作成功时的构造器，此时可返回shop
      * @param stateEnum
      */
-    public ShopExecuction(ShopStateEnum stateEnum, Shop shop) {
+    public ShopExecution(ShopStateEnum stateEnum, Shop shop) {
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
         this.shop = shop;
@@ -48,7 +48,7 @@ public class ShopExecuction {
      * 店铺操作成功时的构造器，此时可返回shopList
      * @param stateEnum
      */
-    public ShopExecuction(ShopStateEnum stateEnum, List<Shop> shopList) {
+    public ShopExecution(ShopStateEnum stateEnum, List<Shop> shopList) {
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
         this.shopList = shopList;

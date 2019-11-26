@@ -3,7 +3,7 @@ package com.imooc.o2o.service.impl;
 import com.imooc.o2o.dao.ShopAuthMapDao;
 import com.imooc.o2o.dao.ShopDao;
 import com.imooc.o2o.dto.ImageHolder;
-import com.imooc.o2o.dto.ShopExecuction;
+import com.imooc.o2o.dto.ShopExecution;
 import com.imooc.o2o.entity.Shop;
 import com.imooc.o2o.entity.ShopAuthMap;
 import com.imooc.o2o.enums.ShopStateEnum;
@@ -18,8 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -47,10 +45,10 @@ public class ShopServiceImpl implements ShopService {
      */
     @Override
     @Transactional
-    public ShopExecuction addShop(Shop shop, ImageHolder image) throws ShopOperationException {
+    public ShopExecution addShop(Shop shop, ImageHolder image) throws ShopOperationException {
         // 包括对shop以及shop中area shopCategory是否为空的判断
         if (shop == null) {
-            return new ShopExecuction(ShopStateEnum.NULL_SHOP);
+            return new ShopExecution(ShopStateEnum.NULL_SHOP);
         }
 
         try {
@@ -102,7 +100,7 @@ public class ShopServiceImpl implements ShopService {
             throw new ShopOperationException("addShop error: " + e.getMessage());
         }
 
-        return new ShopExecuction(ShopStateEnum.CHECK, shop);
+        return new ShopExecution(ShopStateEnum.CHECK, shop);
     }
 
     @Override
@@ -111,9 +109,9 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public ShopExecuction modifyShop(Shop shop, ImageHolder image) throws ShopOperationException {
+    public ShopExecution modifyShop(Shop shop, ImageHolder image) throws ShopOperationException {
         if (shop == null || shop.getShopId() == null) {
-            return new ShopExecuction(ShopStateEnum.NULL_SHOP);
+            return new ShopExecution(ShopStateEnum.NULL_SHOP);
         }
         // step1.判断是否需要处理图片（需要删除旧图片）
         try {
@@ -128,22 +126,22 @@ public class ShopServiceImpl implements ShopService {
             shop.setLastEditTime(new Date());
             int effectedNum = shopDao.updateShop(shop);
             if (effectedNum <= 0) {
-                return new ShopExecuction(ShopStateEnum.INNER_ERROR);
+                return new ShopExecution(ShopStateEnum.INNER_ERROR);
             }
             shop = shopDao.queryByShopId(shop.getShopId());
-            return new ShopExecuction(ShopStateEnum.SUCCESS, shop);
+            return new ShopExecution(ShopStateEnum.SUCCESS, shop);
         } catch (Exception e) {
             throw new ShopOperationException("modify error: " + e.getMessage());
         }
     }
 
     @Override
-    public ShopExecuction getShopList(Shop shopCondition, int pageIndex, int pageSize) {
+    public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize) {
         // 前端只认页数，后端只认行数，所以要进行转换
         int rowIndex = PageCalculator.calculateRowIndex(pageIndex, pageSize);
         List<Shop> shopList = shopDao.queryShopList(shopCondition, rowIndex, pageSize);
         int count = shopDao.queryShopCount(shopCondition);
-        ShopExecuction se = new ShopExecuction();
+        ShopExecution se = new ShopExecution();
         if (shopList != null) {
             se.setShopList(shopList);
             se.setCount(count);
