@@ -1,0 +1,42 @@
+package com.imooc.o2o.service.impl;
+
+import com.imooc.o2o.dao.ProductSellDailyDao;
+import com.imooc.o2o.entity.ProductSellDaily;
+import com.imooc.o2o.service.ProductSellDailyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * @Author : Wang Zhen.
+ * @Date : Created in 11:00 2019/11/26
+ * @Description :
+ * @Modified By   :
+ * @Version :
+ */
+@Service
+public class ProductSellDailyServiceImpl implements ProductSellDailyService {
+    private static final Logger log = LoggerFactory.getLogger(ProductSellDailyServiceImpl.class);
+    @Autowired
+    private ProductSellDailyDao productSellDailyDao;
+
+    @Override
+    public List<ProductSellDaily> listProductSellDaily(ProductSellDaily productSellDailyCondition, Date beginTime,
+                                                       Date endTime) {
+        return productSellDailyDao.queryProductSellDailyList(productSellDailyCondition, beginTime, endTime);
+    }
+
+    @Override
+    public void dailyCalculate() {
+        log.info("Quartz Running!");
+        System.out.println("Quartz 跑起来了！");
+        // 统计在tb_user_product_map里面产生销量的每个店铺的各件商品的日销量
+//        productSellDailyDao.insertProductSellDaily();
+        // 统计余下的商品的日销量，全部置为0（为了迎合echarts的数据请求）
+//        productSellDailyDao.insertDefaultProductSellDaily();
+    }
+}
