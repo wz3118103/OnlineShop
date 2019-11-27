@@ -160,6 +160,32 @@
       <version>2.9.0</version>
     </dependency>
 
+    <!--二维码相关-->
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+
+    <!--GSON弥补了JSON的许多不足的地方，在实际应用中更加适用于Java开发-->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+    </dependency>
+
+      <!--定时调用-->
+      <dependency>
+          <groupId>org.quartz-scheduler</groupId>
+          <artifactId>quartz</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+
   </dependencies>
 
   <build>
