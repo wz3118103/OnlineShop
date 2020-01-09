@@ -13,7 +13,9 @@ import org.springframework.context.annotation.ImportResource;
  */
 
 @Configuration
-@ImportResource("classpath:spring/spring-*.xml")
+@ImportResource({"classpath:spring/spring-service.xml",
+        "classpath:spring/spring-dao.xml",
+        "classpath:spring/spring-redis.xml"})
 @Import(QuartzConfiguration.class)
 public class WebConfig {
 }
