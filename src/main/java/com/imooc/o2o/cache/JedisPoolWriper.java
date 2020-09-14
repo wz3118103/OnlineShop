@@ -13,9 +13,10 @@ import redis.clients.jedis.JedisPoolConfig;
 public class JedisPoolWriper {
     private JedisPool jedisPool;
 
-    public JedisPoolWriper(final JedisPoolConfig poolConfig, final String host, final int port) {
+    public JedisPoolWriper(final JedisPoolConfig poolConfig, final String host, final int port,
+                           final int timeout, final String password) {
         try {
-            jedisPool = new JedisPool(poolConfig, host, port);
+            jedisPool = new JedisPool(poolConfig, host, port, timeout, password);
         } catch (Exception e) {
             e.printStackTrace();
         }

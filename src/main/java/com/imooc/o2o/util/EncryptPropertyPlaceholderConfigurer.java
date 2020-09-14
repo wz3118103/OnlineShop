@@ -13,7 +13,7 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
     /**
      * 需要解密的字段数组
       */
-    private String[] decryptPropertyNames = {"jdbc.username", "jdbc.password"};
+    private String[] decryptPropertyNames = {"jdbc.username", "jdbc.password", "redis.password"};
 
     @Override
     protected String convertProperty(String propertyName, String propertyValue) {
