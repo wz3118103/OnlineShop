@@ -1,0 +1,1 @@
+2019-11-26 08:54:25.790 [main] ERROR com.imooc.o2o.util.ShortNetAddressUtil getshortURL error: invalid long URL: host is IP, which is not supported

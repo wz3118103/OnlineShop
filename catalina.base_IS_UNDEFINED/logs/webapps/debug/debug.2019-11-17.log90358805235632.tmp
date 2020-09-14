@@ -1,0 +1,91 @@
+2019-11-17 13:56:47.317 [main] DEBUG com.imooc.o2o.dao.AreaDao.queryArea ==>  Preparing: SELECT area_id, area_name, priority, create_time, last_edit_time FROM tb_area ORDER BY priority DESC 
+2019-11-17 13:56:47.345 [main] DEBUG com.imooc.o2o.dao.AreaDao.queryArea ==> Parameters: 
+2019-11-17 13:56:47.359 [main] DEBUG com.imooc.o2o.dao.AreaDao.queryArea <==      Total: 2
+2019-11-17 13:57:10.506 [main] DEBUG com.imooc.o2o.dao.AreaDao.queryArea ==>  Preparing: SELECT area_id, area_name, priority, create_time, last_edit_time FROM tb_area ORDER BY priority DESC 
+2019-11-17 13:57:10.534 [main] DEBUG com.imooc.o2o.dao.AreaDao.queryArea ==> Parameters: 
+2019-11-17 13:57:10.548 [main] DEBUG com.imooc.o2o.dao.AreaDao.queryArea <==      Total: 2
+2019-11-17 13:59:18.589 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 13:59:18.625 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã(String), test(String), test(String), test(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 13:59:18.344(Timestamp), null
+2019-11-17 13:59:18.631 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:01:36.590 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_desc=?, shop_addr=?, last_edit_time=? WHERE shop_id=? 
+2019-11-17 14:01:36.609 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==> Parameters: ≤‚ ‘∏¸–¬√Ë ˆ(String), ≤‚ ‘∏¸–¬µÿ÷∑(String), 2019-11-17 14:01:36.17(Timestamp), 36(Long)
+2019-11-17 14:01:36.613 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop <==    Updates: 1
+2019-11-17 14:07:20.686 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:07:20.709 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:07:20.67(Timestamp), 2019-11-17 14:07:20.67(Timestamp)
+2019-11-17 14:07:20.711 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:07:20.736 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\37\2019111714072010836.jpg
+2019-11-17 14:07:20.737 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\37\2019111714072010836.jpg
+2019-11-17 14:07:20.854 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:13:19.246 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:13:19.270 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:13:19.228(Timestamp), 2019-11-17 14:13:19.228(Timestamp)
+2019-11-17 14:13:19.271 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:13:19.278 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\38\2019111714131951352.jpg
+2019-11-17 14:13:19.278 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\38\2019111714131951352.jpg
+2019-11-17 14:13:19.350 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:17:28.073 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:17:28.322 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:17:27.999(Timestamp), 2019-11-17 14:17:27.999(Timestamp)
+2019-11-17 14:17:28.324 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:17:28.340 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\39\2019111714172854016.jpg
+2019-11-17 14:17:28.341 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\39\2019111714172854016.jpg
+2019-11-17 14:17:28.582 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:18:14.511 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:18:14.535 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:18:14.496(Timestamp), 2019-11-17 14:18:14.496(Timestamp)
+2019-11-17 14:18:14.537 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:18:14.546 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\40\2019111714181443742.jpg
+2019-11-17 14:18:25.992 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\40\2019111714181443742.jpg
+2019-11-17 14:20:13.710 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:20:13.738 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:20:13.686(Timestamp), 2019-11-17 14:20:13.686(Timestamp)
+2019-11-17 14:20:13.740 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:20:13.749 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\41\2019111714201396905.jpg
+2019-11-17 14:20:13.749 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\41\2019111714201396905.jpg
+2019-11-17 14:20:13.828 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:22:49.168 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:22:49.193 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:22:49.153(Timestamp), 2019-11-17 14:22:49.153(Timestamp)
+2019-11-17 14:22:49.195 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:22:49.205 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\42\2019111714224974081.jpg
+2019-11-17 14:22:49.205 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\42\2019111714224974081.jpg
+2019-11-17 14:27:10.516 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:27:10.539 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:27:10.497(Timestamp), 2019-11-17 14:27:10.497(Timestamp)
+2019-11-17 14:27:10.540 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:27:10.547 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\43\2019111714271010137.jpg
+2019-11-17 14:27:10.547 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\43\2019111714271010137.jpg
+2019-11-17 14:27:10.687 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:34:42.178 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:34:42.207 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:34:42.162(Timestamp), 2019-11-17 14:34:42.162(Timestamp)
+2019-11-17 14:34:42.208 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:34:42.215 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\44\2019111714344243561.jpg
+2019-11-17 14:34:42.216 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\44\2019111714344243561.jpg
+2019-11-17 14:34:42.366 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:36:01.639 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:36:01.684 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã2(String), test2(String), test2(String), test(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:36:01.359(Timestamp), null
+2019-11-17 14:36:01.692 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:38:34.133 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:38:34.163 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 2(Integer), 10(Long), ≤‚ ‘µÍ∆Ã2(String), test2(String), test2(String), test(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:38:33.853(Timestamp), null
+2019-11-17 14:38:34.170 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:39:06.854 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:39:07.103 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 3(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:39:03.081(Timestamp), 2019-11-17 14:39:04.781(Timestamp)
+2019-11-17 14:39:07.105 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:39:43.457 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\47\2019111714394366562.jpg
+2019-11-17 14:39:43.458 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\47\2019111714394366562.jpg
+2019-11-17 14:40:44.168 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:45:30.976 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 14:45:31.001 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 3(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 14:45:30.959(Timestamp), 2019-11-17 14:45:30.959(Timestamp)
+2019-11-17 14:45:31.002 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 14:45:31.009 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\48\2019111714453130836.jpg
+2019-11-17 14:45:31.009 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\48\2019111714453130836.jpg
+2019-11-17 14:45:31.193 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 14:45:31.193 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==> Parameters: ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), \upload\item\shop\48\2019111714453130836.jpg(String), 2019-11-17 14:45:30.959(Timestamp), 0(Integer), …Û∫À÷–(String), 3(Integer), 10(Long), 48(Long)
+2019-11-17 14:45:31.195 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop <==    Updates: 1
+2019-11-17 15:01:29.719 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 15:01:29.749 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 3(Integer), 10(Long), ≤‚ ‘µÍ∆Ã1(String), test1(String), test1(String), test1(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 15:01:29.671(Timestamp), 2019-11-17 15:01:29.671(Timestamp)
+2019-11-17 15:01:29.751 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 15:03:00.088 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\49\2019111715030030026.jpg
+2019-11-17 15:03:00.089 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\49\2019111715030030026.jpg
+2019-11-17 20:27:18.597 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, enable_status, advice, create_time, last_edit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2019-11-17 20:27:18.671 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop ==> Parameters: 1(Long), 3(Integer), 10(Long), ≤‚ ‘µÍ∆Ã3(String), test3(String), test3(String), test3(String), null, null, 0(Integer), …Û∫À÷–(String), 2019-11-17 20:27:18.536(Timestamp), 2019-11-17 20:27:18.536(Timestamp)
+2019-11-17 20:27:18.674 [main] DEBUG com.imooc.o2o.dao.ShopDao.insertShop <==    Updates: 1
+2019-11-17 20:27:18.682 [main] DEBUG com.imooc.o2o.util.ImageUtil current relativeAddr is: \upload\item\shop\50\2019111720271840662.jpg
+2019-11-17 20:27:18.682 [main] DEBUG com.imooc.o2o.util.ImageUtil complete addr is: E:\wz\image\upload\item\shop\50\2019111720271840662.jpg
+2019-11-17 20:27:18.925 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==>  Preparing: UPDATE tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? WHERE shop_id=? 
+2019-11-17 20:27:18.926 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop ==> Parameters: ≤‚ ‘µÍ∆Ã3(String), test3(String), test3(String), test3(String), \upload\item\shop\50\2019111720271840662.jpg(String), 2019-11-17 20:27:18.536(Timestamp), 0(Integer), …Û∫À÷–(String), 3(Integer), 10(Long), 50(Long)
+2019-11-17 20:27:18.927 [main] DEBUG com.imooc.o2o.dao.ShopDao.updateShop <==    Updates: 1

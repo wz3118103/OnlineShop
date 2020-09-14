@@ -1,0 +1,50 @@
+2019-11-26 16:08:30.821 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.queryProductSellDailyList] use [slave] Strategy, SqlCommanType [SELECT]..
+2019-11-26 16:08:30.849 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：slave
+2019-11-26 16:08:30.969 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==>  Preparing: SELECT psd.product_sell_daily_id, psd.create_time, psd.total, s.shop_id, s.shop_name, p.product_id, p.product_name FROM tb_product_sell_daily psd, tb_shop s, tb_product p WHERE psd.shop_id = s.shop_id and psd.product_id = p.product_id and psd.shop_id = ? order by psd.product_id, psd.create_time 
+2019-11-26 16:08:31.256 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==> Parameters: 29(Long)
+2019-11-26 16:08:31.312 [main] DEBUG c.i.o.d.P.queryProductSellDailyList <==      Total: 2
+2019-11-26 16:08:51.524 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.insertProductSellDaily] use [master] Strategy, SqlCommanType [INSERT]..
+2019-11-26 16:08:51.525 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：master
+2019-11-26 16:08:51.537 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily ==>  Preparing: INSERT INTO tb_product_sell_daily(product_id,shop_id,create_time,total) ( SELECT product_id,shop_id,date_format(create_time,'%Y-%m-%d'),count(product_id) AS total FROM tb_user_product_map WHERE date_format(create_time,'%Y-%m-%d') = date_sub(curdate(),interval 1 day) GROUP BY product_id) 
+2019-11-26 16:08:51.561 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily ==> Parameters: 
+2019-11-26 16:08:51.588 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily <==    Updates: 0
+2019-11-26 16:08:51.595 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.insertDefaultProductSellDaily] use [master] Strategy, SqlCommanType [INSERT]..
+2019-11-26 16:08:51.595 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：master
+2019-11-26 16:08:51.596 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily ==>  Preparing: INSERT INTO tb_product_sell_daily(product_id,shop_id,create_time,total) ( SELECT p.product_id,p.shop_id,date_sub(curdate(),interval 1 day),0 AS total FROM tb_product p WHERE p.product_id not in (select product_id from tb_product_sell_daily where date_format(create_time,'%Y-%m-%d') = date_sub(curdate(),interval 1 day)) ) 
+2019-11-26 16:08:51.598 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily ==> Parameters: 
+2019-11-26 16:08:51.631 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily <==    Updates: 17
+2019-11-26 16:08:51.655 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.queryProductSellDailyList] use [slave] Strategy, SqlCommanType [SELECT]..
+2019-11-26 16:08:51.655 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：slave
+2019-11-26 16:08:51.658 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==>  Preparing: SELECT psd.product_sell_daily_id, psd.create_time, psd.total, s.shop_id, s.shop_name, p.product_id, p.product_name FROM tb_product_sell_daily psd, tb_shop s, tb_product p WHERE psd.shop_id = s.shop_id and psd.product_id = p.product_id and psd.shop_id = ? order by psd.product_id, psd.create_time 
+2019-11-26 16:08:51.787 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==> Parameters: 29(Long)
+2019-11-26 16:08:51.821 [main] DEBUG c.i.o.d.P.queryProductSellDailyList <==      Total: 11
+2019-11-26 16:09:17.667 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.insertProductSellDaily] use [master] Strategy, SqlCommanType [INSERT]..
+2019-11-26 16:09:17.669 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：master
+2019-11-26 16:09:17.682 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily ==>  Preparing: INSERT INTO tb_product_sell_daily(product_id,shop_id,create_time,total) ( SELECT product_id,shop_id,date_format(create_time,'%Y-%m-%d'),count(product_id) AS total FROM tb_user_product_map WHERE date_format(create_time,'%Y-%m-%d') = date_sub(curdate(),interval 1 day) GROUP BY product_id) 
+2019-11-26 16:09:17.705 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily ==> Parameters: 
+2019-11-26 16:09:17.731 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily <==    Updates: 0
+2019-11-26 16:09:17.737 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.insertDefaultProductSellDaily] use [master] Strategy, SqlCommanType [INSERT]..
+2019-11-26 16:09:17.738 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：master
+2019-11-26 16:09:17.738 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily ==>  Preparing: INSERT INTO tb_product_sell_daily(product_id,shop_id,create_time,total) ( SELECT p.product_id,p.shop_id,date_sub(curdate(),interval 1 day),0 AS total FROM tb_product p WHERE p.product_id not in (select product_id from tb_product_sell_daily where date_format(create_time,'%Y-%m-%d') = date_sub(curdate(),interval 1 day)) ) 
+2019-11-26 16:09:17.738 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily ==> Parameters: 
+2019-11-26 16:09:17.763 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily <==    Updates: 0
+2019-11-26 16:09:17.787 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.queryProductSellDailyList] use [slave] Strategy, SqlCommanType [SELECT]..
+2019-11-26 16:09:17.787 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：slave
+2019-11-26 16:09:17.791 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==>  Preparing: SELECT psd.product_sell_daily_id, psd.create_time, psd.total, s.shop_id, s.shop_name, p.product_id, p.product_name FROM tb_product_sell_daily psd, tb_shop s, tb_product p WHERE psd.shop_id = s.shop_id and psd.product_id = p.product_id and psd.shop_id = ? order by psd.product_id, psd.create_time 
+2019-11-26 16:09:17.938 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==> Parameters: 29(Long)
+2019-11-26 16:09:17.995 [main] DEBUG c.i.o.d.P.queryProductSellDailyList <==      Total: 11
+2019-11-26 16:14:52.384 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.insertProductSellDaily] use [master] Strategy, SqlCommanType [INSERT]..
+2019-11-26 16:14:52.385 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：master
+2019-11-26 16:14:52.398 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily ==>  Preparing: INSERT INTO tb_product_sell_daily(product_id,shop_id,create_time,total) ( SELECT product_id,shop_id,date_format(create_time,'%Y-%m-%d'),count(product_id) AS total FROM tb_user_product_map WHERE date_format(create_time,'%Y-%m-%d') = date_sub(curdate(),interval 1 day) GROUP BY product_id) 
+2019-11-26 16:14:52.420 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily ==> Parameters: 
+2019-11-26 16:14:52.451 [main] DEBUG c.i.o.d.ProductSellDailyDao.insertProductSellDaily <==    Updates: 3
+2019-11-26 16:14:52.454 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.insertDefaultProductSellDaily] use [master] Strategy, SqlCommanType [INSERT]..
+2019-11-26 16:14:52.454 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：master
+2019-11-26 16:14:52.455 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily ==>  Preparing: INSERT INTO tb_product_sell_daily(product_id,shop_id,create_time,total) ( SELECT p.product_id,p.shop_id,date_sub(curdate(),interval 1 day),0 AS total FROM tb_product p WHERE p.product_id not in (select product_id from tb_product_sell_daily where date_format(create_time,'%Y-%m-%d') = date_sub(curdate(),interval 1 day)) ) 
+2019-11-26 16:14:52.456 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily ==> Parameters: 
+2019-11-26 16:14:52.485 [main] DEBUG c.i.o.d.P.insertDefaultProductSellDaily <==    Updates: 14
+2019-11-26 16:14:52.513 [main] DEBUG c.imooc.o2o.dao.split.DynamicDataSourceInterceptor 设置方法[com.imooc.o2o.dao.ProductSellDailyDao.queryProductSellDailyList] use [slave] Strategy, SqlCommanType [SELECT]..
+2019-11-26 16:14:52.513 [main] DEBUG com.imooc.o2o.dao.split.DynamicDataSourceHolder 所使用的数据源为：slave
+2019-11-26 16:14:52.517 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==>  Preparing: SELECT psd.product_sell_daily_id, psd.create_time, psd.total, s.shop_id, s.shop_name, p.product_id, p.product_name FROM tb_product_sell_daily psd, tb_shop s, tb_product p WHERE psd.shop_id = s.shop_id and psd.product_id = p.product_id and psd.shop_id = ? order by psd.product_id, psd.create_time 
+2019-11-26 16:14:52.658 [main] DEBUG c.i.o.d.P.queryProductSellDailyList ==> Parameters: 29(Long)
+2019-11-26 16:14:52.690 [main] DEBUG c.i.o.d.P.queryProductSellDailyList <==      Total: 9
